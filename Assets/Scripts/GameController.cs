@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
     public UnityEngine.UI.Text SL;
     public GameObject FC;
 
-    void Update () {
-        int count = GameObject.FindGameObjectsWithTag("Item").Length;
-        SL.text = count.ToString();
+    public int remain = 999;
 
-        if( count == 0 ){
-            FC.SetActive(true);
+    private void Start(){
+        remain = GameObject.FindGameObjectsWithTag("Item").Length;
+    }
+
+    void Update () {
+        SL.text = remain.ToString();
+
+        if( remain == 0 ){
+            if( SceneManager.GetActiveScene().name == "DefaultScene"){
+                SceneManager.LoadScene("HardScene");
+            }
+            else FC.SetActive(true);
         }
     }
 }

@@ -2,10 +2,19 @@
 using System.Collections;
 
 public class Item : MonoBehaviour{
-    // トリガーとの接触時に呼ばれるコールバック
+    public GameController GC;
+    public bool flag = false;
+
     void OnTriggerEnter( Collider hit ){
         if( hit.CompareTag("Player") ){
-            Destroy(this.gameObject);
+            GC.remain--;
+            this.flag = true;
+        }
+    }
+    private void Update(){
+        this.gameObject.transform.Rotate(5,0,0);
+        if( this.flag ){
+            this.gameObject.transform.position += new Vector3(0,1,0);
         }
     }
 }
