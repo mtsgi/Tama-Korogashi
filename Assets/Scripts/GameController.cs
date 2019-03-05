@@ -21,6 +21,9 @@ public class GameController : MonoBehaviour {
             if( SceneManager.GetActiveScene().name == "DefaultScene"){
                 SceneManager.LoadScene("HardScene");
             }
+            else if (SceneManager.GetActiveScene().name == "HardScene"){
+                SceneManager.LoadScene("ExtraScene");
+            }
             else FC.SetActive(true);
         }
     }
