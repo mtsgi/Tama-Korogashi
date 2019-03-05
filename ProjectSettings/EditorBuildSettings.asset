@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ExtraScene.unity
     guid: 7e013d0466b464c76807793a0ca67f3a
+  - enabled: 1
+    path: Assets/Scenes/BonusScene.unity
+    guid: f9b8380c3ed0447c5977d590944015f3
   m_configObjects: {}
